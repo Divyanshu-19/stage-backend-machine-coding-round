@@ -26,7 +26,7 @@ export class CreateMovieDto {
   @MaxLength(1000)
   description: string;
 
-  @ApiProperty({  enum: genre, isArray: true })
+  @ApiProperty({ enum: genre, isArray: true })
   @IsNotEmpty()
   @IsArray()
   @ArrayMinSize(1)

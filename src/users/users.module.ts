@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MoviesController } from './movies.controller';
-import { MoviesService } from './movies.service';
+import { UserController } from './users.controller';
+import { UserService } from './users.services';
 import { Movie, MovieSchema } from '../models/movie.schema';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Movie.name, schema: MovieSchema }]),
+    AuthModule,
   ],
-  controllers: [MoviesController],
-  providers: [MoviesService],
+  controllers: [UserController],
+  providers: [UserService],
 })
 export class MoviesModule {}
